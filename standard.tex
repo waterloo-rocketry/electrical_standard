@@ -1,4 +1,6 @@
-documentclass{article}
+\documentclass{article}
+\usepackage{seqsplit}
+\usepackage{gensymb}
 
 \begin{document}
 % start of titlepage -- {{{
@@ -9,17 +11,18 @@ documentclass{article}
 	{\scshape\bfseries\LARGE Electrical Design and Assembly Standards\par}
 	\vspace{2cm}
 	{\Large\itshape Aaron Morrison\par}
+	{\Large\itshape Alex Mihaila\par}
 	\vfill
 
 % Bottom of the page
-	{\large July 3, 2017\par Revision 0.2}
+	{\large July 8, 2017\par Revision 0.2}
     \par
 \end{titlepage}
 % end titlepage -- }}}
 
 %start of guiding principles section -- {{{
-\section{Guiding Principles of all decisions}
-This document exists to set out a standard for all the electrical gear (avionics, telemetry, ground support equipment). This document is very much still in development (it's based on 3 pages of notes I made in a notebook in the desert), and I am by no means an expert. Changes/revisions are very welcome. All design decisions on mission critical electrical systems should be made with the following four points in mind:
+\section{Guiding Principles of all Decisions}
+This document exists to set out a standard for all the electrical gear (avionics, telemetry, ground support equipment). Changes/revisions are very welcome. All design decisions on mission critical electrical systems should be made with the following four points in mind:
 
 \begin{enumerate}
 \item Our electrical stuff needs to work 100\% of the time at competition. If that's unattainable, 6 sigma is also acceptable. A lot of work from a lot of people go into building this rocket, and missing our 1 launch attempt because of an electrical problem is not acceptable.
@@ -32,30 +35,48 @@ This document is written in descending order of importance. If you need to decid
 
 %start of hard rules section -- {{{
 \section{Rules}
-Here are the rules for all the design and assembly decisions. If you want to break one of these rules, make sure you have a very good excuse. Again though, this document was written by someone who doesn't actually have any idea of what he's doing, so if you think a rule is stupid, feel free to cross it out (provide a reason though). If you think a rule is unclear, feel free to elaborate on it. If you think there's a good rule that should be added, please write it in in the margin or pull request the repository (https://github.com/akmorrison/waterloo_rocketry_electrical_standard).
+Here are the rules for all the design and assembly decisions. If you want to break one of these rules, make sure you have a very good excuse. Again though, this document was written by someone who doesn't actually have any idea of what he's doing, so if you think a rule is stupid, feel free to cross it out (provide a reason though). If you think a rule is unclear, feel free to elaborate on it. If you think there's a good rule that should be added, please write it in in the margin or pull request the repository (https://github.com/akmorrison/waterloo\_rocketry\_electrical\_standard).
 
+\subsection{Connections}
 \begin{itemize}
-
-\item Don't solder stranded wire to protoboard. Don't solder stranded wire to a connector. It gets brittle and it breaks.
-\item Don't crimp something onto solid core wire. That doesn't work
-\item All mission critical components should have a hotswappable replacement. You should have that replacement's location written down.
-\item Hotswappable means you can replace it without any tools (except maybe pliers or a screwdriver. But no generator)
-\item All exposed wire should be heatshrunk, all heatshrink should be clear.
-\item If supplies allow, use different a different insulation color for each wire (at the very least, positive should be red, ground should be black, and all other wires should not be red or black)
-\item If you screw up a soldering job (we all do it), redo the job
+\item Don't solder stranded wire to protoboard. Don't solder stranded wire to a connector. It gets brittle and it breaks. Use crimped connections, screw terminals, etc instead.
+\item If you're making a crimped connection, use a proper crimp tool if at all possible. Pliers work in a pinch, but the connection is messier and more likely to fail. Good crimp tools are expensive but worth it. (If you're in MME, you can borrow one from MESS.)
+\item If you absolutely need to solder stranded core to something, make sure it's very strain relieved (I personally like P clamps, but zip ties work too).
+\item Crimped connections should be done on stranded wire only. Don't crimp onto solid core. It's weak and it will break, often when you least want it to.
+\item All exposed wire should be heatshrunk; all heatshrink should be clear (IREC regulation).
+\item If you screw up a soldering job (we all do it), redo the job. When soldering surface mount components, inspect solder joints with a small magnifying glass.
 \item All connections must be tug proof.
-\item If your system has any software anywhere, that software should be unit tested
-\item All wires you use need to be low enough gauge to match the current you're putting through them
-\item If you're using an RC lithium polymer battery, it should be fused (those fuckers can sink 50 amps)
-\item If it's conceivably possible for a component to be installed backwards, there should be idiot proof documentation of which way it goes, that documentation should be less than 2 inches from the install point
-\item If a connection could be asymmetric, it should be asymmetric
-\item All switches need idiot proof labelling
-\item But don't use actual tape labels (they peel off easy. Use a sharpie)
+\item If a connection could be asymmetric, it should be asymmetric.
+\end{itemize}
+
+\subsection{General Wiring \& Assembly}
+\begin{itemize}
+\item Wiring should be done so that the circuit is as readable as possible. If supplies allow, use different a different insulation color for each wire (at the very least, positive should be red, ground should be black, and all other wires should not be red or black).
+\item All wires you use need to be low enough gauge to match the current you're putting through them.
+\item If your wires get handled or moved or torqued at any point, they should be strain relieved on both sides of the torque point.
+\item Strain relieve everything to the point that it can survive violent shaking (if it's actually going in the rocket, it should survive very violent shaking).
+\item Tight wires between two points are accidents waiting to happen. Avoid these.
+\item If you're using an RC lithium polymer battery, it should be fused (those fuckers can sink 50 amps).
+\item When designing a box, circuit layout, or other assembly, keep in mind that wires and electrical components do take up space. Leave clearance in the design stage; this problem should be solved before fabrication/assembly.
+\item Keep good isolation. That means standoffs and that means decent creepage distances.
+\end{itemize}
+
+\subsection{Software}
+\begin{itemize}
+\item If your system has any software anywhere, that software should be unit tested.
+\item If your system requires a computer program to be used, that program counts as mission critical. It should run on at least two machines and at least two people should be trained to use it.
 \item All mission critical software should be expressible (and accompanied by) less than 100 lines of pseudocode.
-\item If your wires get handled or moved or torqued at any point, it should be strain relieved on both sides of the torque point
-\item If you absolutely need to solder stranded core to something, make sure it's very strain relieved (I personally like P clamps, but zip ties work too)
-\item Tight wires between two points are accidents waiting to happen
-\item Strain relieve everything to the point that it can survive violent shaking (if it's actually going in the rocket, it should survive very violent shaking)
+\item All software should use a VCS (probably git), and all final versions of your software should go with your development logs (see Documentation Standards) on the drive.
+\end{itemize}
+
+\subsection{Miscellaneous}
+\begin{itemize}
+\item All switches need idiot-proof labeling. Labeling should be permanent (i.e. not tape, etc).
+\item All mission critical components should have a hotswappable replacement. You should have that replacement's location written down. "Hotswappable" means you can replace it without any tools (except maybe pliers or a screwdriver. But no generator).
+\item If it's conceivably possible for a component to be installed backwards, there should be idiot proof documentation of which way it goes, that documentation should be less than 2 inches from the install point.
+\item Buy spares. You will fuck things up, be prepared.
+\item Don't solder at hotter than 700\degree. Even that is probably pretty aggressive. Use leaded solder, it melts at a low temperature so you won't burn off all your flux. If your solder isn't melting below 700\degree, the iron's tip is probably bad and should be replaced. Take care of your tips!
+\item Don't short things. If you have any bare wires flailing around, don't apply power to the system.
 \end{itemize}
 %end of hard rules section -- }}}
 
@@ -68,36 +89,44 @@ There are three types of documentation that should be written for every piece of
 \begin{enumerate}
 \item Users guide
 \begin{itemize}
-\item Step by step operating instructions
+\item Step by step operating instructions.
 \item Partway through a procedure, if something can go wrong, say what it is, how you can tell it's gone wrong, and a reference to your troubleshooting guide on how to fix it.
-\item This probably just needs to be a single checklist/procedure
+\item Assume that you will not be there when your system is used. Your documentation should be so good that someone who has never seen your system can fix/use it.
+\item This probably just needs to be a single checklist/procedure.
 \end{itemize}
 \item Troubleshooting Guide
 \begin{itemize}
-\item detail every failure mode you can think of (and try to think of more)
-\item include the symptoms of every failure mode, what the worst case scenario is, how to diagnose this failure mode conclusively, and how to fix it.
-\item this should have a list of every component in your system, and how to test that component in isolation. This list will be useful for building spares kits.
+\item Detail every failure mode you can think of (and try to think of more)
+\item Include the symptoms of every failure mode, what the worst case scenario is, how to diagnose this failure mode conclusively, and how to fix it.
+\item This should have a list of every component in your system, and how to test that component in isolation. This list will be useful for building spares kits.
 \end{itemize}
 \item Development Logs
 \begin{itemize}
-\item Every meeting's minutes, every block diagram you draw, all your rambling dev notes, everything you do pertaining to this system during the development cycle.
+\item Document every decision you make. Include meeting minutes, block diagrams, etc. The point of this is so future generations maintaining your project know the reasoning behind your engineering decisions. They shouldn't be left guessing.
 \item Take all this, pick good filenames, and stick them all in a folder in the google drive.
-\item This will be incredibly useful for future generations who want to learn this stuff.
-\item Include data sheets for everything you use.
+\end{itemize}
+\item Datasheets
+\begin{itemize}
+\item Include datasheets for everything you use. Keep these in the same folder as the rest of your project documentation.
+\end{itemize}
+\item Schematics \& Board Layout
+\begin{itemize}
+\item Any circuit you build should be thoroughly documented in a schematic. Schematics should be correct, clear, and well-organized. The primary purpose of a schematic is to communicate the circuit to someone who hasn't seen it before. A messy schematic won't make the person reviewing your circuit too happy, so it pays to keep things neat (yes, you should be getting other people to review your designs). 
+\item Some guidelines can be found at \seqsplit{https://electronics.stackexchange.com/questions/28251/rules-and-guidelines-for-drawing-good-schematics}.
+\item If you are making a PCB, the board layout and all supporting files should be uploaded to the Google Drive. If you're using proprietary software, include a PDF (this goes for both schematics and layout).
 \end{itemize}
 \end{enumerate}
 %end of documentation section -- }}}
 
-%start of life advice section -- {{{
-\section{Life advice from someone who doesn't actually know what they're doing}
+%start of design guidelines section -- {{{
+\section{Design Reviews}
+% Expand this into "Design Guidelines" as more stuff accumulates.
+If you're designing any part of a system, you should be conducting design reviews. This applies whether there are multiple people working on the system or if you're the only one. If you're alone on a project, this is a good opportunity to make someone else familiar with your work. Apart from resulting in a better circuit, design reviews will also help ensure that you are never the only one who knows how your project should work.
 \begin{itemize}
-\item Buy spares. You will fuck things up, be prepared
-\item Never solder at hotter than 700 degrees. Even that is probably pretty aggressive. Use leaded solder, it melts at a low temperature so you won't burn off all your flux.
-\item All software should use a VCS (probably git), and all final versions of your software should go with your dev logs on the drive.
-\item Don't short things. If you have any bare wires flailing around, don't apply power to the system.
-\item Assume that you will not be there when your system is used. Your documentation should be so good that someone who has never seen your system can fix/use it
-\item Wires and electrical components do take up space. Please keep this in mind.
-\item Keep good isolation. That means standoffs and that means decent creepage distances.
+\item  Conduct design reviews on every major revision of your system. This means bringing in another person to discuss your circuit. Keep a record of what was discussed and decided in the review. When presenting a new revision, indicate what has been changed since the last review.
+\item Design reviews should be thorough. Even innocent looking sections should be discussed. Chances are you won't find a bug there, but it will save you pain down the line. Discuss failure modes and alternative solutions.
+\item The person doing your review should know what they're doing.
+\item If appropriate, invite junior members to listen in on the review. They will benefit from being part of the review process and will become better designers and reviewers in the future.
 \end{itemize}
-%end of life advice section -- }}}
+%end of design guidelines section -- }}}
 \end{document}
