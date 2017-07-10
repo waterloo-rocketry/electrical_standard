@@ -1,6 +1,11 @@
 \documentclass{article}
 \usepackage{seqsplit}
 \usepackage{gensymb}
+\usepackage{hyperref}
+\def\Version#1{\def\version{#1}}
+
+\date{\today}
+\Version{0.2}
 
 \begin{document}
 % start of titlepage -- {{{
@@ -15,7 +20,7 @@
 	\vfill
 
 % Bottom of the page
-	{\large July 8, 2017\par Revision 0.2}
+	{\large \makeatletter\@date\par Revision \version}
     \par
 \end{titlepage}
 % end titlepage -- }}}
@@ -35,7 +40,7 @@ This document is written in descending order of importance. If you need to decid
 
 %start of hard rules section -- {{{
 \section{Rules}
-Here are the rules for all the design and assembly decisions. If you want to break one of these rules, make sure you have a very good excuse. Again though, this document was written by someone who doesn't actually have any idea of what he's doing, so if you think a rule is stupid, feel free to cross it out (provide a reason though). If you think a rule is unclear, feel free to elaborate on it. If you think there's a good rule that should be added, please write it in in the margin or pull request the repository (https://github.com/akmorrison/waterloo\_rocketry\_electrical\_standard).
+Here are the rules for all the design and assembly decisions. If you want to break one of these rules, make sure you have a very good excuse. Again though, this document was written by someone who doesn't actually have any idea of what he's doing, so if you think a rule is stupid, feel free to cross it out (provide a reason though). If you think a rule is unclear, feel free to elaborate on it. If you think there's a good rule that should be added, please write it in in the margin or pull request the repository \newline(\url{https://github.com/akmorrison/waterloo\_rocketry\_electrical\_standard}).
 
 \subsection{Connections}
 \begin{itemize}
@@ -84,7 +89,7 @@ Here are the rules for all the design and assembly decisions. If you want to bre
 \section{Documentation Standards}
 If you're building some piece of gear, or you're leading a project that does, it is your responsibility to ensure that all the forms of documentation are written decently and put in the google drive.
 
-There are three types of documentation that should be written for every piece of electrical gear that comes to competition:
+There are five types of documentation that should be written/assembled for every piece of electrical gear that comes to competition:
 
 \begin{enumerate}
 \item Users guide
@@ -112,7 +117,7 @@ There are three types of documentation that should be written for every piece of
 \item Schematics \& Board Layout
 \begin{itemize}
 \item Any circuit you build should be thoroughly documented in a schematic. Schematics should be correct, clear, and well-organized. The primary purpose of a schematic is to communicate the circuit to someone who hasn't seen it before. A messy schematic won't make the person reviewing your circuit too happy, so it pays to keep things neat (yes, you should be getting other people to review your designs). 
-\item Some guidelines can be found at \seqsplit{https://electronics.stackexchange.com/questions/28251/rules-and-guidelines-for-drawing-good-schematics}.
+\item Some guidelines can be found at \url{https://electronics.stackexchange.com/questions/28251/rules-and-guidelines-for-drawing-good-schematics}.
 \item If you are making a PCB, the board layout and all supporting files should be uploaded to the Google Drive. If you're using proprietary software, include a PDF (this goes for both schematics and layout).
 \end{itemize}
 \end{enumerate}
