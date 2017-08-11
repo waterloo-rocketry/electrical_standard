@@ -64,6 +64,7 @@ Here are the rules for all the design and assembly decisions. If you want to bre
 \item If you're using an RC lithium polymer battery, it should be fused (those fuckers can sink 50 amps).
 \item When designing a box, circuit layout, or other assembly, keep in mind that wires and electrical components do take up space. Leave clearance in the design stage; this problem should be solved before fabrication/assembly.
 \item Keep good isolation. That means standoffs and that means decent creepage distances.
+\item When using shielded cable, ensure the shield is properly terminated and grounded. Shields should only be grounded at one end of the cable.
 \end{itemize}
 
 \subsection{Software}
@@ -119,7 +120,9 @@ There are five types of documentation that should be written/assembled for every
 \begin{itemize}
 \item Any circuit you build should be thoroughly documented in a schematic. Schematics should be correct, clear, and well-organized. The primary purpose of a schematic is to communicate the circuit to someone who hasn't seen it before. A messy schematic won't make the person reviewing your circuit too happy, so it pays to keep things neat (yes, you should be getting other people to review your designs). 
 \item Some guidelines can be found at \url{https://electronics.stackexchange.com/questions/28251/rules-and-guidelines-for-drawing-good-schematics}.
-\item If you are making a PCB, the board layout and all supporting files should be uploaded to the Google Drive. If you're using proprietary software, include a PDF (this goes for both schematics and layout).
+\item This may seem obvious, but the components in your schematics should match what you intend to use in the circuit. If you are using a particular component, label it as such. If your schematic editor doesn't have a symbol for the part you intend to use, make a custom one (all decent editors support this). Eg. a TL780 voltage regulator should not be represented by a BD244 transistor.
+\item Label output terminals properly. For example, a 12V output should be labeled as such. It should be clear what the inputs and outputs of any particular part of your circuit are.
+\item If you are making a PCB, the board layout and all supporting files should be uploaded to the Google Drive. Include both PDFs and the original files.
 \end{itemize}
 \end{enumerate}
 %end of documentation section -- }}}
