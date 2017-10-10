@@ -42,6 +42,7 @@ This document is written in descending order of importance. If you need to decid
 \section{Rules}
 Here are the rules for all the design and assembly decisions. If you want to break one of these rules, make sure you have a very good excuse. Again though, this document was written by someone who doesn't actually have any idea of what he's doing, so if you think a rule is stupid, feel free to cross it out (provide a reason though). If you think a rule is unclear, feel free to elaborate on it. If you think there's a good rule that should be added, please write it in in the margin or pull request the repository \newline(\url{https://github.com/akmorrison/waterloo\_rocketry\_electrical\_standard}).
 
+%start of connections subsection -- {{{
 \subsection{Connections}
 \begin{itemize}
 \item Don't solder stranded wire to protoboard. Don't solder stranded wire to a connector. It gets brittle and it breaks. Use crimped connections, screw terminals, etc instead.
@@ -53,7 +54,9 @@ Here are the rules for all the design and assembly decisions. If you want to bre
 \item All connections must be tug proof.
 \item If a connector could be asymmetric, it should be asymmetric, since asymmetric connectors are much harder to plug in backwards.
 \end{itemize}
+%end of connections subsection -- }}}
 
+%start of wiring and assembly subsection -- {{{
 \subsection{General Wiring \& Assembly}
 \begin{itemize}
 \item Wiring should be done so that the circuit is as readable as possible. If supplies allow, use different a different insulation color for each wire (at the very least, positive should be red, ground should be black, and all other wires should not be red or black).
@@ -66,7 +69,9 @@ Here are the rules for all the design and assembly decisions. If you want to bre
 \item Keep good isolation. That means standoffs and that means decent creepage distances.
 \item When using shielded cable, ensure the shield is properly terminated and grounded. Shields should only be grounded at one end of the cable.
 \end{itemize}
+%end of wiring and assembly subsection -- }}}
 
+%start of software subsection -- {{{
 \subsection{Software}
 \begin{itemize}
 \item If your system has any software anywhere, that software should be unit tested.
@@ -74,7 +79,29 @@ Here are the rules for all the design and assembly decisions. If you want to bre
 \item All mission critical software should be expressible (and accompanied by) less than 100 lines of pseudocode.
 \item All software should use a VCS (probably git), and all final versions of your software should go with your development logs (see Documentation Standards) on the drive.
 \end{itemize}
+%end of software subsection -- }}}
 
+%start of pcb subsection -- {{{
+\subsection{PCB design}
+\begin{itemize}
+\item Given the choice, please draft your schematics and board layouts in KiCad. It's free (GPLv3), used by the rest of the team, and runs on all platforms. \url{http://kicad-pcb.org/}
+\item if your PCBs are meant to be screwed onto something, put those mounting holes on your layout, and if at all possible, use M3 screws (for standardization purposes, if you have a space restriction, smaller screws are fine).
+\item Before ordering any components, make a list of all components in your design, and go through their data sheets one by one and ensure that they meet or exceed the requirements of your design. Do not just trust the Digikey table values, they are occasionally mislabeled.
+\item The cheapest board that can be purchased in small quantities is a 2 sided 1oz 5cm by 10cm 10/10 (10 mil (.254mm) min clearance and min trace width) 0.4mm smallest drill size board. If at all possible, try to make your design fit that requirement.
+\item If a pin is listed as NC on a data sheet, don't pull it to ground. Just leave it unconnected. Unused IO pins are a different story, they may need to be shorted to ground or VCC. Consult your data sheet in this instance.
+
+\item If you plan to hand-solder your boards for assembly:
+\begin{itemize}
+\item Use pads that are longer than you need. KiCad has specific footprints whose names end in \_handsoldering, which have extended pads for easier hand-soldering.
+\item Use flux. It makes surface mount soldering orders of magnitude cheaper. 10ml syringes are less than \$20 at Sayal, and should last for a while.
+\item SOT-23 and 0805 SMT components are quite easily hand-solderable. SOT-23-5 are also doable, but are harder. I've never attempted anything smaller than those.
+\item BGA components can't be hand-soldered. Bear this in mind while choosing components. There might exist a reflow oven somewhere on campus that we have access to, but laying paste will be a pain. Avoid BGA packages if you plan to assemble by hand.
+\item Don't batch assemble boards (if you need multiple) when they arrive, because you will be less inclined to change your design if you notice small bugs if you've already committed lots of components (which are worth far more than the cheap boards) to this design. Build one, test to death, then decide whether to make another revision or to assemble the rest.
+\end{itemize}
+\end{itemize}
+%end of pcb subsection -- }}}
+
+%start of miscellaneous subsection -- {{{
 \subsection{Miscellaneous}
 \begin{itemize}
 \item All switches need idiot-proof labeling. Labeling should be permanent (i.e. not tape, etc).
@@ -85,6 +112,7 @@ Here are the rules for all the design and assembly decisions. If you want to bre
 \item Don't short things. If you have any bare wires flailing around, don't apply power to the system.
 \item All battery connections should be terminated in a female connector to prevent battery shorting and enable easy battery swapping.
 \end{itemize}
+%end of mescellaneous subsection -- }}}
 %end of hard rules section -- }}}
 
 %start of documentation section -- {{{
