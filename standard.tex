@@ -84,6 +84,7 @@ Here are the rules for all the design and assembly decisions. If you want to bre
 %start of pcb subsection -- {{{
 \subsection{PCB design}
 \begin{itemize}
+\item Watch this EEVblog video: \url{https://www.youtube.com/watch?v=JrH_itjMDjo}. It's like an hour and a half long, but well worth watching.
 \item Given the choice, please draft your schematics and board layouts in KiCad. It's free (GPLv3), used by the rest of the team, and runs on all platforms. \url{http://kicad-pcb.org/}
 \item if your PCBs are meant to be screwed onto something, put those mounting holes on your layout, and if at all possible, use M3 screws (for standardization purposes, if you have a space restriction, smaller screws are fine).
 \item Before ordering any components, make a list of all components in your design, and go through their data sheets one by one and ensure that they meet or exceed the requirements of your design. Do not just trust the Digikey table values, they are occasionally mislabeled.
@@ -92,6 +93,7 @@ Here are the rules for all the design and assembly decisions. If you want to bre
 
 \item If you plan to hand-solder your boards for assembly:
 \begin{itemize}
+\item Watch this video \url{https://www.youtube.com/watch?v=J5Sb21qbpEQ} (EEVblog soldering tutorial). Then watch part 2. Then watch part 3. Yes that involves an hour and a half time commitment, but after watching those 3 you'll know exactly as much as I do about soldering.
 \item Use pads that are longer than you need. KiCad has specific footprints whose names end in \_handsoldering, which have extended pads for easier hand-soldering.
 \item Use flux. It makes surface mount soldering orders of magnitude cheaper. 10ml syringes are less than \$20 at Sayal, and should last for a while.
 \item SOT-23 and 0805 SMT components are quite easily hand-solderable. SOT-23-5 are also doable, but are harder. I've never attempted anything smaller than those.
