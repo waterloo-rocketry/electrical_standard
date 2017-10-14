@@ -84,20 +84,15 @@ Here are the rules for all the design and assembly decisions. If you want to bre
 %start of pcb subsection -- {{{
 \subsection{PCB Design}
 \begin{itemize}
-\item EEVBlog has a great (albeit long) introduction to PCB layout/design: \url{https://www.youtube.com/watch?v=JrH_itjMDjo}. It's like an hour and a half long, but well worth watching.
-\item Given the choice, please draft your schematics and board layouts in KiCad. It's free (GPLv3), used by the rest of the team, and runs on all platforms. \url{http://kicad-pcb.org/}
 \item If your PCBs are meant to be screwed onto something, put mounting holes on your layout, and if at all possible, use M3 screws (for standardization purposes. If you have a space restriction, smaller screws are fine).
-\item The cheapest board that can be purchased in small quantities is a 2 sided 1oz 5cm by 10cm 10/10 (10 mil (.254mm) min clearance and min trace width) 0.4mm smallest drill size board. If at all possible, try to make your design fit that requirement.
 \item If a pin is listed as NC on a data sheet, don't pull it to ground. Just leave it unconnected. Some manufacturers (from what stack overflow tells me), use NC pins for in production testing, and as such they aren't actually high impedance pins, and shorting them elsewhere may destroy your IC.
 
-\item If you plan to hand-solder your boards for assembly:
+\item Points that only apply to designs intended to be handsoldered:
 \begin{itemize}
-\item Watch this video \url{https://www.youtube.com/watch?v=J5Sb21qbpEQ} (EEVblog soldering tutorial) and its sequels.
-\item Use pads that are longer than you need. KiCad has specific footprints whose names end in \_handsoldering, which have extended pads for easier hand-soldering.
-\item Use flux. It makes surface mount soldering orders of magnitude cheaper. 10ml syringes are less than \$20 at Sayal, and should last for a while.
+\item Use SMD pads that are longer than you need. KiCad has specific footprints whose names end in \_HandSoldering, which have extended pads for easier hand-soldering (eg don't use footprint "R\_0805", use "R\_0805\_HandSoldering").
 \item SOT-23 and 0805 SMT components are quite easily hand-solderable. SOT-23-5 are also doable, but are harder. I've never attempted anything smaller than those.
-\item BGA components can't be hand-soldered. Bear this in mind while choosing components. There might exist a reflow oven somewhere on campus that we have access to, but laying paste will be a pain. Avoid BGA packages if you plan to assemble by hand.
-\item Don't batch assemble boards (if you need multiple) when they arrive, because you will be less inclined to change your design if you notice small bugs if you've already committed lots of components (which are worth far more than the cheap boards) to this design. Build one, test to death, then decide whether to make another revision or to assemble the rest.
+\item BGA components can't be hand-soldered. There might exist a reflow oven somewhere on campus that we have access to, but laying paste will be a pain. Avoid BGA packages if you plan to assemble by hand.
+\item Don't batch assemble boards (if you are making multiple) when they arrive, because you will be less inclined to change your design if you notice small bugs if you've already committed lots of components (which are worth far more than the cheap boards) to this design. Build one, test to death, then decide whether to make another revision or to assemble the rest.
 \end{itemize}
 \end{itemize}
 %end of pcb subsection -- }}}
