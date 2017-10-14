@@ -1,0 +1,56 @@
+\documentclass{article}
+\usepackage{seqsplit}
+\usepackage{gensymb}
+\usepackage{hyperref}
+\def\Version#1{\def\version{#1}}
+
+\date{\today}
+\Version{0.01}
+
+\begin{document}
+% start of titlepage -- {{{
+\begin{titlepage}
+	\centering
+	{\scshape\Huge Waterloo Rocketry Team \par}
+	\vspace{1.5cm}
+	{\scshape\bfseries\LARGE General Electrical Advice\par}
+	\vspace{1.5cm}
+	{\scshape\bfseries Stuff that just didn't fit in the standard\par}
+	\vspace{2.5cm}
+	{\Large\itshape Aaron Morrison\par}
+	%{\Large\itshape Alex Mihaila\par}
+	\vfill
+
+% Bottom of the page
+	{\large \makeatletter\@date\par Revision \version}
+    \par
+\end{titlepage}
+% end titlepage -- }}}
+
+%start of preamble section -- {{{
+\section{Preamble/Beginning Ramble}
+This section is going to be a bit of back story and an explanation of why this document exists. It's a bit rambly, so you really don't have to read this section if you don't want.
+
+This document exists as an offshoot of the ``Electrical Design and Assembly Standards'' document (which will usually be referred to as ``The Standard''). The Standard began as a collection of handwritten notes at IREC 2017. We suffered a lot of failures with our electrical gear at that competition, many of which could have prevented us from flying (a cat5 sensor cable broke an hour before dark the day before we planned to launch first thing), and a great deal of hacky solutions were MacGyvered together last minute, and it just barely worked.
+
+Electrical gear is becoming a bigger part of our team. And more and more systems that are required for us to launch safely are becoming dependent on student made (read sketchy AF) electrical gear. We've already had one competition at which we failed to launch because of a failure with one minor system (IREC 2016), and the thought of having a repeat of that because of a piece of electrical gear is unthinkable. As such, we wrote list of things that you either should or should not do when designing or assembling mission critical electrical gear. After all the profanity was removed from that list, it became The Standard.
+
+The Standard is intended as a list of things to either do or not do. Ideally, it would work as a pass fail checklist for any designs or gear that we have. However, there were a lot of items in that list that didn't fit well into this model, and worked more as general advice more so than a pass or fail checklist. These items were still of value, but they didn't fit in that document. To that end, we created this document (which I'm going to call ``The Advice'', for symmetry), which will be filled with whatever advice that should be imparted with all members of the electrical team, but we can't put in the Standard.
+
+Most members of the electronics team started with Rocketry before knowing anything about electrics. Everything we know, we learned here, and we learned mostly by fucking things up. The Advice is here to try to spare you some of these mistakes that we made. That being said, we still don't know everything (or even most things. Or, to a linear approximation, anything). There is a great deal of valuable advice that isn't in this document, and some of the stuff in here may be wrong. If you want to change anything in here, you're free to. Either write notes into the margin, or submit a pull request to \url{https://github.com/akmorrison/waterloo_rocketry_electrical_standard}. If you are changing anything though, write in a reason, and sign your name on the title page.
+%end of preamble section -- }}}
+
+%start of PCB section -- {{{
+\section{PCB Advice}
+Here's my advice if you're deciding to get PCB's made. I've only ever had 2 designs manufactured, neither of which had very exacting requirements, so take things with a grain of salt, feel free to add any advice that you feel fits.
+\begin{itemize}
+\item EEVBlog has a great (albeit long) introduction to PCB layout/design: \url{https://www.youtube.com/watch?v=JrH_itjMDjo}. It's like an hour and a half long, but well worth watching.
+\item Given the choice, please draft your schematics and board layouts in KiCad. It's free (GPLv3), used by the rest of the team, and runs on all platforms. \url{http://kicad-pcb.org/}
+\item The cheapest board that can be purchased in small quantities is a 2 sided 1oz 5cm by 10cm 10/10 (10 mil (.254mm) min clearance and min trace width) 0.4mm smallest drill size board. If at all possible, try to make your design fit that requirement.
+\item On the subject of price, go to \url{https://www.pcbshopper.com} to get quotes for boards. It's a great crawler for dozens of PCB fabs, so you're likely to get the best price here. There's search parameters for board size, type, copper weight, solder mask color, etc. It's a really great site.
+\item Watch this video \url{https://www.youtube.com/watch?v=J5Sb21qbpEQ} (EEVblog soldering tutorial) and its sequels.
+\item Use flux. It makes surface mount soldering orders of magnitude cheaper. 10ml syringes are less than \$20 at Sayal, and should last for a while.
+\end{itemize}
+%end of PCB section -- }}}
+
+\end{document}
