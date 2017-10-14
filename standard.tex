@@ -88,7 +88,7 @@ Here are the rules for all the design and assembly decisions. If you want to bre
 \item Given the choice, please draft your schematics and board layouts in KiCad. It's free (GPLv3), used by the rest of the team, and runs on all platforms. \url{http://kicad-pcb.org/}
 \item If your PCBs are meant to be screwed onto something, put mounting holes on your layout, and if at all possible, use M3 screws (for standardization purposes. If you have a space restriction, smaller screws are fine).
 \item The cheapest board that can be purchased in small quantities is a 2 sided 1oz 5cm by 10cm 10/10 (10 mil (.254mm) min clearance and min trace width) 0.4mm smallest drill size board. If at all possible, try to make your design fit that requirement.
-\item If a pin is listed as NC on a data sheet, don't pull it to ground. Just leave it unconnected. Some manufacturers (from what stack overflow tells me), use NC pins for in production testing, and as such they aren't actually high impedence pins, and shorting them elsewhere may destroy your IC.
+\item If a pin is listed as NC on a data sheet, don't pull it to ground. Just leave it unconnected. Some manufacturers (from what stack overflow tells me), use NC pins for in production testing, and as such they aren't actually high impedance pins, and shorting them elsewhere may destroy your IC.
 
 \item If you plan to hand-solder your boards for assembly:
 \begin{itemize}
