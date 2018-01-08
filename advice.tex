@@ -57,4 +57,43 @@ Here's my advice if you're deciding to get PCB's made. I've only ever had 2 desi
 \end{itemize}
 %end of PCB section -- }}}
 
+%start of standardization section -- {{{
+\section{On Standardization}
+Standardization is a broad issue that applies to a few different sections that 
+could exist, but it's a big enough issue that we should take some space to talk 
+about it here. Standardization, broadly, is using the same parameter (whether 
+that be electrical component, or pin spacing, or software, etc) whenever 
+possible in a design or across many designs. The advantages for hardware 
+standardization are hotswappability (if you used the same connector in 12 spots,
+and 1 breaks, you can swap in another one easily) and parts in stock (we have a
+bunch of M3 standoffs and bolts in the bay, for example). The advantage to
+standardizing software is easier collaboration with the other electrical people
+on the team. It would be much harder to work together on stuff if we were split
+between using Word, Docs, text files, and stone tablets.
+\par
+Here's a list of what we are currently making an effort to standardize on (note,
+this absolutely does not mean that designs are \textit{required} to follow
+these, if there exists a decent reason for your project not to follow these
+rules, then by all means disregard them). This list is, as all lists,
+incomplete. If there's something you want to add, please pencil it in or submit
+a pull request for discussion.
+\begin{itemize}
+\item M3 mounting hardware: for pcb mounting and other small fastener related
+tasks. We have plenty of standoffs and bolts and nuts in the bay, and if we have
+need of more, it's easy to buy this type of hardware in bulk on Aliexpress for
+much cheaper than we can get here (albeit with significantly longer lead times).
+\item 10mil pin pitches (2.54mm for you metric apologists): We have an entire
+box of 10mil dupont connectors (and the required ratcheted crimper to use them)
+in the bay, and again, we could get way more on Aliexpress. By using 10mil pin
+pitches on all connectors, we can use those components to kluge together a more
+robust temporary or development solution for a connector. In addition, this also
+lets us standardize on jumpers and pin headers, which we could also buy in bulk.
+\item KiCAD (schematic capture and pcb layout software): The current electrical
+team members all use KiCAD, which makes collaborating really easy (we don't need
+to send around PDFs of every revision). It's a free, open source program, and
+while there are complaints of learning curve and lack of polish, it's better
+than any other free software we've found for the task.
+\end{itemize}
+%end of standardization section -- }}}
+
 \end{document}
