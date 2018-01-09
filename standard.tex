@@ -88,13 +88,13 @@ Here are the rules for all the design and assembly decisions. If you want to bre
 \item If your PCBs are meant to be screwed onto something, put mounting holes on your layout, and if at all possible, use M3 screws (for standardization purposes. If you have a space restriction, smaller screws are fine).
 \item If a pin is listed as NC on a data sheet, don't pull it to ground. Just leave it unconnected. Some manufacturers (from what stack overflow tells me), use NC pins for in production testing, and as such they aren't actually high impedance pins, and shorting them elsewhere may destroy your IC.
 \item Use plated holes for any through-hole components. This is default in most PCB design sofware. If a trace on the bottom and a trace on the top of the board meet at a component lead, the hole, not the lead, should be the conductor between them. Not using plated holes can cause continuity issues if the solder doesn't wick completely through the hole during assembly.
-\item If it is reasonable, route traces so that if a solder joint on one component fails (eg. if a pad rips off), it does not affect the surrounding components (see Figure \ref{fig:powertraces} below). This applies especially to power connections for independent parts of the circuit. Don't daisy chain power lines through the leads or pads of components.
+\item If it is reasonable, route traces so that if a solder joint on one component fails (eg. if a pad rips off), it does not affect downstream components (see Figure \ref{powertraces} below). This applies especially to power connections for independent parts of the circuit. Don't daisy chain power lines through the leads or pads of components.
 
 \begin{figure}[h]
     \centering
-    \caption{Power trace routing}
-    \label{fig:powertraces}
     \includegraphics[height=3cm]{power_traces.png}
+    \caption{Power trace routing}
+    \label{powertraces}
 \end{figure}
 
 \item Don't print PCBs at the 3D Printing Center in E5. These are typically poor quality.
