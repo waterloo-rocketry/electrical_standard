@@ -126,9 +126,9 @@ Here are the rules for all the design and assembly decisions. If you want to bre
 
 %start of documentation section -- {{{
 \section{Documentation Standards}
-If you're building some piece of gear, or you're leading a project that does, it is your responsibility to ensure that all the forms of documentation are written decently and put in the google drive.
+It is your responsibility to ensure that your project is fully documented and available to the team. Development and documentation for all electrical projects should be tracked in git and hosted on GitHub (under the team organization, waterloo-rocketry). If you manage your repository using issues and pull requests, and if decisions regarding these are made in Slack conversations, put a permalink to the conversation in the issue comment (this is to help traceability). In general, how you manage your project repository is up to you.
 
-There are five types of documentation that should be written/assembled for every piece of electrical gear that comes to competition:
+Release documentation for each project should also be put in Electrical/$\langle$project folder$\rangle$ on the Drive. Project documentation should include the following:
 
 \begin{enumerate}
 \item Users guide
@@ -140,26 +140,24 @@ There are five types of documentation that should be written/assembled for every
 \end{itemize}
 \item Troubleshooting Guide
 \begin{itemize}
-\item Detail every failure mode you can think of (and try to think of more)
 \item Include the symptoms of every failure mode, what the worst case scenario is, how to diagnose this failure mode conclusively, and how to fix it.
 \item This should have a list of every component in your system, and how to test that component in isolation. This list will be useful for building spares kits.
 \end{itemize}
-\item Development Logs
+\item Design Documentation
 \begin{itemize}
-\item Document every decision you make. Include meeting minutes, block diagrams, etc. The point of this is so future generations maintaining your project know the reasoning behind your engineering decisions. They shouldn't be left guessing.
-\item Take all this, pick good filenames, and stick them all in a folder in the google drive.
+\item A document outlining the major decisions made for your project. The point of this is so that future generations maintaining your project know the reasoning behind your decisions. This can include meeting minutes, block diagrams, or anything else you think would be helpful. If it makes sense to reference slack conversations here, use a permalink to the relevant message.
 \end{itemize}
 \item Datasheets
 \begin{itemize}
-\item Include datasheets for everything you use. Keep these in the same folder as the rest of your project documentation.
+\item Self-explanatory. Include datasheets for every component you use.
 \end{itemize}
 \item Schematics \& Board Layout
 \begin{itemize}
-\item Any circuit you build should be thoroughly documented in a schematic. Schematics should be correct, clear, and well-organized. The primary purpose of a schematic is to communicate the circuit to someone who hasn't seen it before. A messy schematic won't make the person reviewing your circuit too happy, so it pays to keep things neat (yes, you should be getting other people to review your designs). 
+\item Any circuit you build should be thoroughly documented in a schematic. Schematics should be correct, clear, and well-organized. The primary purpose of a schematic is to communicate the circuit to someone who hasn't seen it before. A messy schematic will make your circuit harder to review.
 \item Some guidelines can be found at \url{https://electronics.stackexchange.com/questions/28251/rules-and-guidelines-for-drawing-good-schematics}.
-\item This may seem obvious, but the components in your schematics should match what you intend to use in the circuit. If you are using a particular component, label it as such. If your schematic editor doesn't have a symbol for the part you intend to use, make a custom one (all decent editors support this). Eg. a TL780 voltage regulator should not be represented by a BD244 transistor.
-\item Label output terminals properly. For example, a 12V output should be labeled as such. It should be clear what the inputs and outputs of any particular part of your circuit are.
-\item If you are making a PCB, the board layout and all supporting files should be uploaded to the Google Drive. Include both PDFs and the original files.
+\item The components in your schematics should match what you intend to use in the circuit. If you are using a particular component, label it as such (and provide a datasheet - see above). This will help identify potential issues in design reviews.
+\item If your schematic editor doesn't have a symbol for the part you intend to use, make a custom one (all decent editors support this). Eg. a TL780 voltage regulator should not be represented by a BD244 transistor.
+\item Provide both the PDFs and original files for schematics and PCBs.
 \end{itemize}
 \end{enumerate}
 %end of documentation section -- }}}
