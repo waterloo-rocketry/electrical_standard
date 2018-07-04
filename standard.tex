@@ -12,7 +12,7 @@
 % Title page -- {{{
 \begin{titlepage}
 	\centering
-	{\scshape\Huge Waterloo Rocketry Team \par}
+	{\scshape\Huge Waterloo Rocketry\par}
 	\vspace{1.5cm}
 	{\scshape\bfseries\LARGE Electrical Design and Assembly Standards\par}
 	\vspace{2cm}
@@ -41,7 +41,7 @@ If you need to decide between whether to follow a guiding principle or a hard ru
 
 %Hard Rules -- {{{
 \section{Rules}
-Here are the rules for all the design and assembly decisions. If you want to break one of these rules, make sure you have a very good excuse. If you think a rule is unclear, feel free to elaborate on it. If you think there's a good rule that should be added, please write it in the margin or pull request the repository (\url{https://github.com/waterloo-rocketry/waterloo\_rocketry\_electrical\_standard}).
+Here are the rules for all the design and assembly decisions. If you want to break one of these rules, make sure you have a very good excuse. If you think a rule is unclear, feel free to elaborate on it. If you think there's a good rule that should be added, please write it in the margin or pull request the repository (\url{https://github.com/waterloo-rocketry/electrical\_standard}).
 
 %Connections -- {{{
 \subsection{Connections}
@@ -63,7 +63,11 @@ Here are the rules for all the design and assembly decisions. If you want to bre
 %Wiring and Assembly -- {{{
 \subsection{General Wiring \& Assembly}
 \begin{itemize}
-\item Any electrical system that may be unsafe to approach while powered (eg. if they contain energetics) should have a manual kill switch installed somewhere accessible.
+\item Any electrical system that may be unsafe to approach while powered should have a manual kill switch installed that:
+    \begin{itemize}
+    \item disables all energetics or potentially unsafe components.
+    \item can be operated without requiring any disassembly.
+    \end{itemize}
 \item Wiring should be done so that the circuit is as readable as possible. If supplies allow, use different a different insulation color for each wire (at the very least, positive should be red, ground should be black, and all other wires should not be red or black).
 \item All wires used should be rated for the current going through them.
 \item Strain relief:
@@ -74,7 +78,7 @@ Here are the rules for all the design and assembly decisions. If you want to bre
     \end{itemize}
 \item RC lithium polymer batteries should be fused (they can sink up to 50 A).
 \item When designing a box, circuit layout, or other assembly, keep in mind that wires and electrical components do take up space. Leave clearance in the design stage; this problem should be solved before fabrication/assembly.
-\item Use standoffs to make sure the circuit board has good isolation from what's beneath it. This is especially important if the board is mounted on a metal plate (for obvious reasons).
+\item Use standoffs to make sure the circuit board has good isolation from what's beneath it. This is especially important if the board is mounted on a metal plate.
 \item When using shielded cable, ensure the shield is properly terminated and grounded.
 \end{itemize}
 %-- }}}
@@ -106,7 +110,7 @@ Here are the rules for all the design and assembly decisions. If you want to bre
 \item Make sure that soldermask clearance is set such that there is soldermask between component pads (pay attention to fine pitched components) and that there is no mask on the pads themselves.
 \item Thoroughly check the Gerber files for the board before you send them out for fabrication.
 
-\item Points that only apply to designs intended to be handsoldered:
+\item Points that only apply to designs intended to be hand-soldered:
 \begin{itemize}
 \item Use SMD pads that are longer than you need. KiCad has specific footprints whose names end in \_HandSoldering, which have extended pads for easier hand-soldering (eg. use "R\_0805\_HandSoldering" instead of "R\_0805".
 \item BGA components can't be hand-soldered. We have access to the reflow oven in the 3D print center, but laying paste and inspection will be difficult. Avoid BGA packages if you plan to assemble by hand.
@@ -123,7 +127,7 @@ Here are the rules for all the design and assembly decisions. If you want to bre
 \item If it's conceivably possible for a component to be installed backwards, there should be idiot proof documentation of which way it goes, that documentation should be less than 2 inches from the install point.
 \item Buy spares for all components provided it is not prohibitively expensive.
 \item All battery connectors should be terminated in a female connector to prevent battery shorting and enable easy battery swapping.
-\item Before ordering any components, make a list of all components in your design, and go through their data sheets one by one and ensure that they meet or exceed the requirements of your design. Do not just trust the Digikey table values, they are occasionally mislabeled. Design reviewers should also do this.
+\item Before ordering any components, make a list of all components in your design, and go through their data sheets one by one and ensure that they meet or exceed the requirements of your design. Do not just trust the Digi-Key table values, they are occasionally mislabeled. Design reviewers should also do this.
 \end{itemize}
 %-- }}}
 %-- }}}
