@@ -73,7 +73,7 @@ Here are the rules for all the design and assembly decisions. If you want to bre
 \item Strain relief:
     \begin{itemize}
     \item Wires that get handled, moved, or torqued at any point should be strain relieved on both sides of that point.
-    \item Wires should be relieved to the point where they can survive very violent shaking.
+    \item Wires should be relieved to the point where they can survive very violent shaking (especially if the system will be going in the rocket).
     \item Avoid tight wires between two points.
     \end{itemize}
 \item RC lithium polymer batteries should be fused (they can sink up to 50 A).
@@ -127,7 +127,7 @@ Here are the rules for all the design and assembly decisions. If you want to bre
 \item If it's conceivably possible for a component to be installed backwards, there should be idiot proof documentation of which way it goes, that documentation should be less than 2 inches from the install point.
 \item Buy spares for all components provided it is not prohibitively expensive.
 \item All battery connectors should be terminated in a female connector to prevent battery shorting and enable easy battery swapping.
-\item Before ordering any components, make a list of all components in your design, and go through their data sheets one by one and ensure that they meet or exceed the requirements of your design. Do not just trust the Digi-Key table values, they are occasionally mislabeled. Design reviewers should also do this.
+\item Before ordering any components, make a list of all components in your design, and go through their data sheets one by one and ensure that they meet or exceed the requirements of your design. Do not just trust the Digi-Key table values since they are occasionally mislabeled. Design reviewers should also do this.
 \end{itemize}
 %-- }}}
 %-- }}}
@@ -162,8 +162,16 @@ Project documentation should include the following:
 \section{Design Reviews}
 If you're designing any part of a system, you should be conducting design reviews. This applies whether there are multiple people working on the system or if you're the only one. If you're alone on a project, this is a good opportunity to make someone else familiar with your work. Apart from resulting in a better circuit, design reviews will also help ensure that you are never the only one who knows how your project should work.
 \begin{itemize}
-\item  Conduct design reviews on every major revision of your system. This means bringing in another person to discuss your circuit. Keep a record of what was discussed and decided in the review. When presenting a new revision, indicate what has been changed since the last review (a commit message is enough).
+\item  Conduct design reviews on every major revision of your system (bring in another person to analyze your design). To minimize wasted work, this should be done:
+    \begin{itemize}
+    \item When you've finished the schematics, but haven't yet designed the PCB.
+    \item When the PCB is mostly finished (except for minor things like silkscreen).
+    \item Immediately before the boards are sent for fabrication. This commit should include the exported Gerber files that will be sent out.
+    \end{itemize}
+\item Keep a record of what was discussed and decided during the review. If the review was done through Slack (which works really well for electrical reviews), then the messages themselves are enough.
+\item When presenting a new revision, indicate what has been changed since the last review (a commit message is enough).
 \item Design reviews should be thorough. Every component and subcircuit should be checked.
+\item The reviewee should post a document stating what checks they've done. This includes checking that all components are within their operating parameters and that the pinouts for each component match the datasheet.
 \item Design reviews should be tied to a particular commit in git.
 \end{itemize}
 %end of design guidelines section -- }}}
