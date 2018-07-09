@@ -66,7 +66,8 @@ Here are the rules for all the design and assembly decisions. If you want to bre
 \item Any electrical system that may be unsafe to approach while powered should have a manual kill switch installed that:
     \begin{itemize}
     \item disables all energetics or potentially unsafe components.
-    \item can be operated without requiring any disassembly.
+    \item can be operated without requiring the rocket to be taken off the tower (eg. magswitches).
+    \item does not require any software to work.
     \end{itemize}
 \item Wiring should be done so that the circuit is as readable as possible. If supplies allow, use different a different insulation color for each wire (at the very least, positive should be red, ground should be black, and all other wires should not be red or black).
 \item All wires used should be rated for the current going through them.
@@ -108,11 +109,15 @@ Here are the rules for all the design and assembly decisions. If you want to bre
 
 \item Don't print PCBs at the 3D Printing Center in E5. These are typically poor quality.
 \item Make sure that soldermask clearance is set such that there is soldermask between component pads (pay attention to fine pitched components) and that there is no mask on the pads themselves.
-\item Thoroughly check the Gerber files for the board before you send them out for fabrication.
-
+\item Thoroughly check the Gerber files for the board before you send them out for fabrication:
+    \begin{itemize}
+    \item Check the copper layers and ensure that there are no unintended connections.
+    \item Make sure that all pours that should be connected are, especially if you manually stitched together different parts of the pour.
+    \item Make sure that the soldermask appears the way you expect it to (Note: the places where soldermask is shown is actually where there \textit{isn't} soldermask).
+    \end{itemize}
 \item Points that only apply to designs intended to be hand-soldered:
 \begin{itemize}
-\item Use SMD pads that are longer than you need. KiCad has specific footprints whose names end in \_HandSoldering, which have extended pads for easier hand-soldering (eg. use "R\_0805\_HandSoldering" instead of "R\_0805".
+\item Use SMD pads that are longer than you need. KiCad has specific footprints whose names end in \_HandSoldering, which have extended pads for easier hand-soldering (eg. use "R\_0805\_HandSoldering" instead of "R\_0805").
 \item BGA components can't be hand-soldered. We have access to the reflow oven in the 3D print center, but laying paste and inspection will be difficult. Avoid BGA packages if you plan to assemble by hand.
 \item Don't batch assemble boards (if you are making multiple) when they arrive, because you will be less inclined to change your design if you notice small bugs if you've already committed lots of components (which are worth far more than the cheap boards) to this design. Build one, test to death, then decide whether to make another revision or to assemble the rest.
 \end{itemize}
