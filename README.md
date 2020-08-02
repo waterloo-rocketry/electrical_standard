@@ -1,3 +1,5 @@
+**This repository is now archived. Newer versions of the electrical standard will be hosted [here](https://docs.google.com/document/d/1Dor3P09H9-mdcJvkMIZcK-YoCY1UyPBDU1qtubGDoAM).**
+
 ## Purpose
 
 This document is meant to be a collection of enforceable rules to be followed by any electrical project on the rocketry team. Anyone on the team is free to contribute to this standard. The main way this thing grows is by adding rules when we mess things up, so if you think you have a teachable moment, add it! If you think a rule is unnecessary or doesn't belong, bring that up, too. The point is to have a set of rules we can agree on and hold each other to.
